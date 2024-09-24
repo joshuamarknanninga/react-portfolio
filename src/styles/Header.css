@@ -3,12 +3,28 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: #e0edfb;
+    background-color: rgba(0, 0, 0, 0.7);
     font-style: italic;
     font-size: x-large;
   }
   
   header h1 {
     margin: 0;
-  }
-  
+  font-size: 1.5rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+nav a.active {
+  border-bottom: 2px solid #ffffff;
+}

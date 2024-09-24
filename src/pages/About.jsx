@@ -2,6 +2,7 @@ import React from 'react';
 import '../styles/About.css'; // Create and import CSS as needed
 import avatar from '../assets/avatar.jpg'; // Replace with your image path
 
+
 function About() {
   return (
     <section className="about">
