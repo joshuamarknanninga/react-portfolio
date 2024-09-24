@@ -103,8 +103,9 @@ function Contact() {
       </form>
       {/* Alternatively, include your email and phone number here */}
       <div className="contact-info">
-        <p>Email: your.email@example.com</p>
-        <p>Phone: (123) 456-7890</p>
+        <p>Email: jmarknanninga@gmail.com</p>
+        <p>Email: joshuamarknanninga@gmail.com</p>
+        <p>Phone: (210) 419-8684</p>
       </div>
     </section>
   );
