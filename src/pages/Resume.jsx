@@ -16,11 +16,10 @@ function Resume() {
         <li>HTML/CSS</li>
         <li>Node.js</li>
         <li>Git & GitHub</li>
-        <li>Responsive Design</li>
-        {/* Add more proficiencies as needed */}
-      </ul>
-    </section>
-  );
-}
-
-export default Resume;
+        <li>SQL</li>
+        <li>MySQL</li>
+        <li>JQuery</li>
+        <li>Bootstrap</li>
+        <li>AJAX</li>
+        <li>SASS</li>
+   

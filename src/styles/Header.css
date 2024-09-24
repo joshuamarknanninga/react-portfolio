@@ -3,10 +3,6 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: #f8f9fa;
-  }
-  
-  header h1 {
-    margin: 0;
-  }
-  
+    background-color: #e0edfb;
+    font-style: italic;
+    font-size: x-l

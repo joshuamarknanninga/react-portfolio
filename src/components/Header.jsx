@@ -5,7 +5,7 @@ import '../styles/Header.css'; // Create and import CSS as needed
 function Header() {
   return (
     <header>
-      <h1>Your Name</h1>
+      <h1>Joshua Mark Nanninga</h1>
       <Navigation />
     </header>
   );

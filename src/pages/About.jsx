@@ -10,11 +10,11 @@ function About() {
         <h2>About Me</h2>
         <p>
           {/* Your short bio here */}
-          Hi! I'm [Your Name], a passionate web developer specializing in building exceptional digital experiences. With a strong foundation in React and modern web technologies, I strive to create responsive, user-friendly applications.
+          Hi! I'm Joshua Mark Nanninga, a passionate web developer specializing in building exceptional digital experiences. With a strong foundation in React and modern web technologies, I strive to create responsive, user-friendly applications.
         </p>
       </div>
     </section>
   );
 }
 
-export default About;
+export defaul
