@@ -22,4 +22,34 @@ function Resume() {
         <li>Bootstrap</li>
         <li>AJAX</li>
         <li>SASS</li>
-   
+        <li>Vue.js</li>
+        <li>NPM</li>
+        <li>Mocha</li>
+        <li>Chrome Dev Tools</li>
+        <li>Tailwind</li>
+        <li>Bulma</li>
+        <li>MongoDB</li>
+        <li>Express</li>
+        <li>Handlebars</li>
+        <li>Firebase</li>
+        <li>AWS</li>
+        <li>Webpack</li>
+        <li>Gulp</li>
+        <li>Python</li>
+        <li>OAuth</li>
+        <li>Jest</li>
+        <li>GCP</li>
+        <li>Heroku</li>
+        <li>Insomnia</li>
+        <li>Web Audio API</li>
+        <li>MediaRecorder API</li>
+        <li>BroadcastChannel API</li>
+        <li>WebGL</li>
+        <li>Three.js</li>
+        {/* Add more proficiencies as needed */}
+      </ul>
+    </section>
+  );
+}
+
+export default Resume;
