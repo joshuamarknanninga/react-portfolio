@@ -1,8 +1,9 @@
 import React from 'react';
 import Project from '../components/Project';
+import PixelArtGenerator from '../components/PixelArtGenerator';
 import '../styles/Portfolio.css'; // Create and import CSS as needed
 
-// Sample project data; replace with your own projects
+// Sample project data; replace your own projects
 const projects = [
   {
     title: 'aphex-twin-music-generator-pro',
@@ -89,6 +90,7 @@ function Portfolio() {
   return (
     <section className="portfolio">
       <h2>Portfolio</h2>
+      <PixelArtGenerator />
       <div className="projects-grid">
         {projects.map((proj, index) => (
           <Project
@@ -97,11 +99,3 @@ function Portfolio() {
             image={proj.image}
             deployedLink={proj.deployedLink}
             repoLink={proj.repoLink}
-          />
-        ))}
-      </div>
-    </section>
-  );
-}
-
-export default Portfolio;
