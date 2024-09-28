@@ -6,7 +6,7 @@ import About from './pages/About';
 import Portfolio from './pages/Portfolio';
 import Contact from './pages/Contact';
 import Resume from './pages/Resume';
-import BackgroundVideo from './components/BackgroundVideo'; // Import the BackgroundVideo component
+import BackgroundVideo from './components/BackgroundVideo';
 import './styles/App.css'; // Ensure your main CSS is imported
 
 function App() {

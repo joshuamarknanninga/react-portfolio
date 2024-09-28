@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
+import '../styles/Portfolio.css';
 import Project from '../components/Project';
-// src/pages/Portfolio.jsx
-import PixelArtGenerator from "../components/PixelArtGenerator";
+import PixelArtGenerator from '../components/PixelArtGenerator';
 
 import '../styles/Portfolio.css'; // Create and import CSS as needed
+
 
 // Sample project data; replace your own projects
 const projects = [
@@ -89,20 +90,40 @@ const projects = [
 ];
 
 function Portfolio() {
+  const [animationSpeed, setAnimationSpeed] = useState(5); // Default speed
+
+  const handleSliderChange = (e) => {
+    setAnimationSpeed(Number(e.target.value));
+  };
+
+  // Define the theme array
+  const theme = ['#1ABC9C', '#E67E22', '#9B59B6', '#34495E']; // Example colors
   return (
     <section className="portfolio">
-      <h2>Portfolio</h2>
-      <PixelArtGenerator />
+      {/* Pass both theme and animationSpeed props */}
+      <PixelArtGenerator theme={theme} animationSpeed={animationSpeed} />
+      <h2>My Portfolio</h2>
       <div className="projects-grid">
-        {projects.map((proj, index) => (
+        {projectsData.map((project, index) => (
           <Project
             key={index}
-            title={proj.title}
-            image={proj.image}
-            deployedLink={proj.deployedLink}
-            repoLink={proj.repoLink}
+            title={project.title}
+            description={project.description}
+            image={project.image}
+            links={project.links}
           />
         ))}
+      </div>
+      <div className="slider-container">
+        <label htmlFor="speed-slider">Animation Speed:</label>
+        <input
+          type="range"
+          id="speed-slider"
+          min="1"
+          max="10"
+          value={animationSpeed}
+          onChange={handleSliderChange}
+        />
       </div>
     </section>
   );

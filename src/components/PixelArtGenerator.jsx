@@ -1,6 +1,8 @@
 // src/components/PixelArtGenerator.jsx
-import React, { useEffect, useRef } from 'react';
-import '../styles/PixelArtGenerator.css'; // Create and import CSS as needed
+
+import React, { useRef, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import '../styles/PixelArtGenerator.css'; // Import the corresponding CSS
 
 const PixelArtGenerator = ({ theme, animationSpeed }) => {
   const canvasRef = useRef(null);
@@ -16,12 +18,31 @@ const PixelArtGenerator = ({ theme, animationSpeed }) => {
       canvas.width = canvas.offsetWidth;
       canvas.height = canvas.offsetHeight;
     };
+
     setCanvasSize();
 
-    // Recalculate on window resize
-    window.addEventListener('resize', setCanvasSize);
+    // Debounced resize handler to optimize performance
+    let resizeTimeout;
+    const handleResize = () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        setCanvasSize();
+        cols = Math.floor(canvas.width / pixelSize);
+        rows = Math.floor(canvas.height / pixelSize);
+        grid = [];
+        for (let x = 0; x < cols; x++) {
+          grid[x] = [];
+          for (let y = 0; y < rows; y++) {
+            grid[x][y] = colors[Math.floor(Math.random() * colors.length)];
+          }
+        }
+        drawGrid();
+      }, 800);
+    };
 
-    const pixelSize = 20; // Size of each pixel
+    window.addEventListener('resize', handleResize);
+
+    const pixelSize = 1; // Size of each pixel
     let cols = Math.floor(canvas.width / pixelSize);
     let rows = Math.floor(canvas.height / pixelSize);
 
@@ -57,26 +78,6 @@ const PixelArtGenerator = ({ theme, animationSpeed }) => {
 
     let frameCount = 0;
 
-    // Debounce resize handler
-  let resizeTimeout;
-  const handleResize = () => {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(() => {
-      setCanvasSize();
-      cols = Math.floor(canvas.width / pixelSize);
-      rows = Math.floor(canvas.height / pixelSize);
-      grid = [];
-      for (let x = 0; x < cols; x++) {
-        grid[x] = [];
-        for (let y = 0; y < rows; y++) {
-          grid[x][y] = colors[Math.floor(Math.random() * colors.length)];
-        }
-      }
-      drawGrid();
-    }, 200);
-  };
-
-  window.addEventListener('resize', handleResize);
     // Animation loop
     const animate = () => {
       frameCount++;
@@ -93,7 +94,8 @@ const PixelArtGenerator = ({ theme, animationSpeed }) => {
     // Cleanup on unmount
     return () => {
       cancelAnimationFrame(animationRef.current);
-      window.removeEventListener('resize', setCanvasSize);
+      window.removeEventListener('resize', handleResize);
+      clearTimeout(resizeTimeout);
     };
   }, [colors, animationSpeed]);
 

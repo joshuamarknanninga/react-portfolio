@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/Resume.css'; // Create and import CSS as needed
 import resumePDF from '../assets/resume.pdf'; // Replace with your resume path
 import PixelArtGenerator from '../components/PixelArtGenerator';
