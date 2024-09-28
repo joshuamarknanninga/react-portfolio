@@ -6,4 +6,7 @@ import reactDom from 'react-dom';
 export default {
   build: {
     rollupOptions: {
-      external: ['rea
+      external: ['react', 'react-dom', 'react-icons/fa'],
+  },
+},
+};

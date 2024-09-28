@@ -99,3 +99,11 @@ function Portfolio() {
             image={proj.image}
             deployedLink={proj.deployedLink}
             repoLink={proj.repoLink}
+          />
+        ))}
+      </div>
+    </section>
+  );
+}
+
+export default Portfolio;
