@@ -1,6 +1,8 @@
 import React from 'react';
 import Project from '../components/Project';
-import PixelArtGenerator from '../components/PixelArtGenerator';
+// src/pages/Portfolio.jsx
+import PixelArtGenerator from "../components/PixelArtGenerator";
+
 import '../styles/Portfolio.css'; // Create and import CSS as needed
 
 // Sample project data; replace your own projects
