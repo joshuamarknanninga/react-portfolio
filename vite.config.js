@@ -1,12 +1,23 @@
+// vite.config.js
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import path from 'path';
 
-import reactDom from 'react-dom';
-
-export default {
+export default defineConfig({
+  plugins: [react()],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    },
+  },
   build: {
     rollupOptions: {
       external: ['react', 'react-dom'],
+    },
   },
-},
-};
+  server: {
+    host: 'localhost',
+    port: 5173,
+    open: true,
+  },
+});

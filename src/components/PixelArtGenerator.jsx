@@ -2,35 +2,88 @@
 import React, { useEffect, useRef } from 'react';
 import '../styles/PixelArtGenerator.css'; // Create and import CSS as needed
 
-const PixelArtGenerator = () => {
+const PixelArtGenerator = ({ theme, animationSpeed }) => {
   const canvasRef = useRef(null);
+  const animationRef = useRef(null);
+  const colors = theme; // Array of color strings
 
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
-    const width = canvas.width;
-    const height = canvas.height;
 
-    const generatePixels = () => {
-      for (let x = 0; x < width; x += 10) {
-        for (let y = 0; y < height; y += 10) {
-          ctx.fillStyle = `rgba(${Math.floor(Math.random() * 256)}, 
-                                ${Math.floor(Math.random() * 256)}, 
-                                ${Math.floor(Math.random() * 256)}, 
-                                1)`;
-          ctx.fillRect(x, y, 10, 10);
+    // Function to set canvas size
+    const setCanvasSize = () => {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    };
+
+    setCanvasSize();
+
+    // Recalculate on window resize
+    window.addEventListener('resize', setCanvasSize);
+
+    const pixelSize = 20; // Size of each pixel
+    let cols = Math.floor(canvas.width / pixelSize);
+    let rows = Math.floor(canvas.height / pixelSize);
+
+    // Initialize grid with random colors from the theme
+    let grid = [];
+    for (let x = 0; x < cols; x++) {
+      grid[x] = [];
+      for (let y = 0; y < rows; y++) {
+        grid[x][y] = colors[Math.floor(Math.random() * colors.length)];
+      }
+    }
+
+    // Function to draw the grid
+    const drawGrid = () => {
+      for (let x = 0; x < cols; x++) {
+        for (let y = 0; y < rows; y++) {
+          ctx.fillStyle = grid[x][y];
+          ctx.fillRect(x * pixelSize, y * pixelSize, pixelSize, pixelSize);
         }
       }
     };
 
-    generatePixels();
-  }, []);
+    // Function to update the grid based on animation speed
+    const updateGrid = () => {
+      for (let x = 0; x < cols; x++) {
+        for (let y = 0; y < rows; y++) {
+          if (Math.random() < 0.05 * (animationSpeed / 5)) { // Adjust change probability
+            grid[x][y] = colors[Math.floor(Math.random() * colors.length)];
+          }
+        }
+      }
+    };
 
-  return (
-    <div className="pixel-art-generator">
-      <canvas ref={canvasRef} width={500} height={500}></canvas>
-    </div>
-  );
+    let frameCount = 0;
+
+    // Animation loop
+    const animate = () => {
+      frameCount++;
+      if (frameCount % Math.max(1, Math.floor(60 / (animationSpeed * 5))) === 0) { // Control animation speed
+        updateGrid();
+        drawGrid();
+      }
+      animationRef.current = requestAnimationFrame(animate);
+    };
+
+    drawGrid();
+    animate();
+
+    // Cleanup on unmount
+    return () => {
+      cancelAnimationFrame(animationRef.current);
+      window.removeEventListener('resize', setCanvasSize);
+    };
+  }, [colors, animationSpeed]);
+
+  return <canvas ref={canvasRef} className="pixel-art-canvas" />;
+};
+
+PixelArtGenerator.propTypes = {
+  theme: PropTypes.arrayOf(PropTypes.string).isRequired,
+  animationSpeed: PropTypes.number.isRequired,
 };
 
 export default PixelArtGenerator;

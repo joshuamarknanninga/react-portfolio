@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
-import '../styles/Contact.css'; // Create and import CSS as needed
+import '../styles/Contact.css';
+import PixelArtGenerator from '../components/PixelArtGenerator';
 
 function Contact() {
+  const [animationSpeed, setAnimationSpeed] = useState(5); // Default speed
+  const theme = ['#8E44AD', '#2ECC71', '#3498DB', '#E74C3C']; // Example theme for Contact
+
+  const handleSliderChange = (e) => {
+    setAnimationSpeed(Number(e.target.value));
+  };
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -58,6 +66,7 @@ function Contact() {
 
   return (
     <section className="contact">
+      <PixelArtGenerator theme={theme} animationSpeed={animationSpeed} />
       <h2>Contact</h2>
       <form onSubmit={handleSubmit} noValidate>
         <div className="form-group">
@@ -101,6 +110,17 @@ function Contact() {
         </div>
         <button type="submit">Send Message</button>
       </form>
+      <div className="slider-container">
+        <label htmlFor="speed-slider">Animation Speed:</label>
+        <input
+          type="range"
+          id="speed-slider"
+          min="1"
+          max="10"
+          value={animationSpeed}
+          onChange={handleSliderChange}
+        />
+      </div>
       {/* Alternatively, include your email and phone number here */}
       <div className="contact-info">
         <p>Email: jmarknanninga@gmail.com</p>

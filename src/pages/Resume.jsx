@@ -1,14 +1,34 @@
 import React from 'react';
 import '../styles/Resume.css'; // Create and import CSS as needed
 import resumePDF from '../assets/resume.pdf'; // Replace with your resume path
+import PixelArtGenerator from '../components/PixelArtGenerator';
 
 function Resume() {
+  const [animationSpeed, setAnimationSpeed] = useState(5); // Default speed
+  const theme = ['#1ABC9C', '#E67E22', '#9B59B6', '#34495E']; // Example theme for Resume
+
+  const handleSliderChange = (e) => {
+    setAnimationSpeed(Number(e.target.value));
+  };
+
   return (
     <section className="resume">
+      <PixelArtGenerator theme={theme} animationSpeed={animationSpeed} />
       <h2>Resume</h2>
       <a href={resumePDF} download>
         Download Resume
       </a>
+      <div className="slider-container">
+        <label htmlFor="speed-slider">Animation Speed:</label>
+        <input
+          type="range"
+          id="speed-slider"
+          min="1"
+          max="10"
+          value={animationSpeed}
+          onChange={handleSliderChange}
+        />
+      </div>
       <h3>Proficiencies</h3>
       <ul className="proficiencies">
         <li>JavaScript</li>
@@ -51,5 +71,6 @@ function Resume() {
     </section>
   );
 }
+
 
 export default Resume;
