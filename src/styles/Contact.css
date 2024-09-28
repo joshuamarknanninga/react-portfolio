@@ -1,11 +1,15 @@
 .contact {
+    position: relative; /* Anchor for the absolute canvas */
     padding: 40px 20px;
+    min-height: 100vh; /* Ensure full viewport height */
   }
   
   .contact form {
     max-width: 600px;
     margin: 0 auto;
     font-size: x-large;
+    position: relative; /* Ensure z-index works */
+    z-index: 1; /* Above the canvas */
   }
   
   .form-group {
@@ -57,3 +61,21 @@
     margin: 5px 0;
   }
   
+
+  /* Example: src/styles/About.css */
+
+.slider-container {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider-container label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.slider-container input[type='range'] {
+  width: 200px;
+}

@@ -3,6 +3,7 @@ import '../styles/About.css'; // Create and import CSS as needed
 import avatar from '../assets/avatar.jpg'; // Replace with your image path
 import PixelArtGenerator from '../components/PixelArtGenerator';
 
+const aboutTheme = ['#FF5733', '#33FF57', '#3357FF', '#F1C40F'];
 
 function About() {
   return (

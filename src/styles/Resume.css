@@ -1,6 +1,9 @@
 .resume {
+    position: relative; /* Anchor for the absolute canvas */
     padding: 40px 20px;
     text-align: center;
+    min-height: 100vh; /* Ensure full viewport height */
+    z-index: 1; /* Above the canvas */
   }
   
   .resume a {
@@ -31,4 +34,23 @@
     padding: 8px 12px;
     border-radius: 4px;
   }
+
+  /* Example: src/styles/About.css */
+
+.slider-container {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider-container label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.slider-container input[type='range'] {
+  width: 200px;
+}
+
   
