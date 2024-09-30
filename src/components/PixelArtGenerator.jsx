@@ -2,7 +2,7 @@
 
 import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import '../styles/PixelArtGenerator.css'; // Import the corresponding CSS
+import '../styles/PixelArtGenerator.css';
 
 const PixelArtGenerator = ({ theme, animationSpeed }) => {
   const canvasRef = useRef(null);

@@ -8,8 +8,8 @@
     max-width: 600px;
     margin: 0 auto;
     font-size: x-large;
-    position: relative; /* Ensure z-index works */
-    z-index: 1; /* Above the canvas */
+    position: relative; /* Ensure z-index takes effect */
+    z-index: 10;
   }
   
   .form-group {

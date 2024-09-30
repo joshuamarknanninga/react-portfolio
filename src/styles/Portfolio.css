@@ -10,9 +10,9 @@
   /* Centers the text within the portfolio section */
   color: #333;
   /* Sets a default text color */
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.5);
   /* Semi-transparent background for readability */
-  overflow: hidden;
+  overflow: visible;
   /* Prevents scrollbars due to absolute elements */
 }
 

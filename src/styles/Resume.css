@@ -1,9 +1,10 @@
 .resume {
-    position: relative; /* Anchor for the absolute canvas */
     padding: 40px 20px;
     text-align: center;
     min-height: 100vh; /* Ensure full viewport height */
     z-index: 1; /* Above the canvas */
+    position: relative; /* Ensure z-index takes effect */
+    z-index: 10;
   }
   
   .resume a {

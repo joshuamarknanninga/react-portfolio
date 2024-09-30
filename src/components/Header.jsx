@@ -12,7 +12,7 @@ function Header() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}
     >
-      <h1>Your Name</h1>
+      <h1>Joshua Mark Nanninga</h1>
       <Navigation />
     </motion.header>
   );

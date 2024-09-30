@@ -3,8 +3,6 @@ import '../styles/Portfolio.css';
 import Project from '../components/Project';
 import PixelArtGenerator from '../components/PixelArtGenerator';
 
-import '../styles/Portfolio.css'; // Create and import CSS as needed
-
 
 // Sample project data; replace your own projects
 const projects = [
@@ -86,7 +84,6 @@ const projects = [
     deployedLink: 'https://joshuamarknanninga.github.io/Matrix-Opening/',
     repoLink: 'https://github.com/joshuamarknanninga/Matrix-Opening',
   },
-  // Add more projects up to six
 ];
 
 function Portfolio() {
@@ -97,19 +94,19 @@ function Portfolio() {
   };
 
   // Define the theme array
-  const theme = ['#1ABC9C', '#E67E22', '#9B59B6', '#34495E']; // Example colors
+  const theme = ['#1ABC9C', '#E67E22', '#9B59B6', '#34495E'];
   return (
     <section className="portfolio">
       {/* Pass both theme and animationSpeed props */}
       <PixelArtGenerator theme={theme} animationSpeed={animationSpeed} />
       <h2>My Portfolio</h2>
       <div className="projects-grid">
-        {projectsData.map((project, index) => (
+        {projects.map((project, index) => (
           <Project
             key={index}
             title={project.title}
             description={project.description}
-            image={project.image}
+            // image={project.image}
             links={project.links}
           />
         ))}

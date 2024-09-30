@@ -5,7 +5,7 @@ header {
     padding: 20px;
     background-color: rgba(0, 0, 0, 0.7);
     font-style: italic;
-    font-size: x-large;
+    font-size: xx-large;
   }
   
   header h1 {
@@ -21,10 +21,10 @@ nav ul {
 
 nav a {
   color: #ffffff;
-  text-decoration: none;
-  font-size: 1rem;
+  text-decoration-color: blue;
+  font-size: 2rem;
 }
 
 nav a.active {
-  border-bottom: 2px solid #ffffff;
+  border-bottom: 2px solid #d11b1b;
 }

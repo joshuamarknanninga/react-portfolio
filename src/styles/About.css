@@ -8,7 +8,8 @@
     padding: 40px 20px;
     background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
     color: #333333;
-    z-index: 1; /* Ensure content is above the canvas */
+    position: relative; /* Ensure z-index takes effect */
+    z-index: 10;
   }
   
   /* Avatar/Image styling */

@@ -4,7 +4,7 @@ import PixelArtGenerator from '../components/PixelArtGenerator';
 
 function Contact() {
   const [animationSpeed, setAnimationSpeed] = useState(5); // Default speed
-  const theme = ['#8E44AD', '#2ECC71', '#3498DB', '#E74C3C']; // Example theme for Contact
+  const theme = ['#8E44AD', '#2ECC71', '#3498DB', '#E74C3C'];
 
   const handleSliderChange = (e) => {
     setAnimationSpeed(Number(e.target.value));
