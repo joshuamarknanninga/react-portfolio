@@ -18,7 +18,7 @@ function Project({ title, description, image, links }) {
             rel="noopener noreferrer"
             className="project-link"
           >
-            {link.label}
+            {linkType}
           </a>
         ))}
       </div>
