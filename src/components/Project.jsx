@@ -4,17 +4,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../styles/Project.css'; // Ensure CSS is correctly imported
 
-const Project = ({ title, description, image, links }) => {
+function Project({ title, description, image, links }) {
   return (
     <div className="project">
-      <img src={image} alt={`${title} Screenshot`} className="project-image" />
       <h3 className="project-title">{title}</h3>
       <p className="project-description">{description}</p>
       <div className="project-links">
         {links.map((link, index) => (
           <a
             key={index}
-            href={link.url}
+            href={link}
             target="_blank"
             rel="noopener noreferrer"
             className="project-link"
@@ -25,12 +24,12 @@ const Project = ({ title, description, image, links }) => {
       </div>
     </div>
   );
-};
+}
 
 Project.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired, // Assuming image is a string URL
+  // image: PropTypes.string.isRequired, // Assuming image is a string URL
   links: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string.isRequired,

@@ -31,12 +31,10 @@
   }
   
   .proficiencies li {
-    background-color: #f1f1f1;
+    background-color: #64e7f5;
     padding: 8px 12px;
     border-radius: 4px;
   }
-
-  /* Example: src/styles/About.css */
 
 .slider-container {
   margin-top: 20px;
