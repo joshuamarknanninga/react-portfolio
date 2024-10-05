@@ -3,91 +3,76 @@ import '../styles/Portfolio.css';
 import Project from '../components/Project';
 import PixelArtGenerator from '../components/PixelArtGenerator';
 
-
-// Sample project data; replace your own projects
 const projects = [
   {
     title: 'aphex-twin-music-generator-pro',
     // image: '/assets/project1.png',
-    deployedLink: 'https://joshuamarknanninga.github.io/aphex-twin-music-generator-pro/',
-    repoLink: 'https://github.com/joshuamarknanninga/aphex-twin-music-generator-pro',
+    links: ['https://joshuamarknanninga.github.io/aphex-twin-music-generator-pro//', 'https://github.com/joshuamarknanninga/aphex-twin-music-generator-pro']
   },
   {
     title: 'restfull-api',
     // image: '/assets/project2.png',
-    deployedLink: 'https://joshuamarknanninga.github.io/restfull-api/',
-    repoLink: 'https://github.com/joshuamarknanninga/restfull-api',
+    links: ['https://joshuamarknanninga.github.io/restfull-api/', 'https://github.com/joshuamarknanninga/restfull-api']
   },
   {
     title: 'ethical-hacking-tool',
     // image: '/assets/project2.png',
-    deployedLink: 'https://joshuamarknanninga.github.io/ethical-hacking-tool/',
-    repoLink: 'https://github.com/joshuamarknanninga/ethical-hacking-tool',
+    links: ['https://joshuamarknanninga.github.io/ethical-hacking-tool/', 'https://github.com/joshuamarknanninga/ethical-hacking-tool']
   },
   {
     title: 'diabetes-nutrition-app',
    // image: '/assets/project2.png',
-    deployedLink: 'https://joshuamarknanninga.github.io/diabetes-nutrition-app/',
-    repoLink: 'https://github.com/joshuamarknanninga/diabetes-nutrition-app',
+    links: ['https://joshuamarknanninga.github.io/diabetes-nutrition-app/', 'https://github.com/joshuamarknanninga/diabetes-nutrition-app']
   },
   {
     title: 'foodbank-database-pro',
     // image: '/assets/project2.png',
-    deployedLink: 'https://joshuamarknanninga.github.io/foodbank-database-pro/',
-    repoLink: 'https://github.com/joshuamarknanninga/foodbank-database-pro',
+    links: ['https://joshuamarknanninga.github.io/foodbank-database-pro/', 'https://github.com/joshuamarknanninga/foodbank-database-pro']
   },
   {
     title: 'haunted-object-database',
     // image: '/assets/project2.png',
-    deployedLink: 'https://joshuamarknanninga.github.io/haunted-object-database/',
-    repoLink: 'https://github.com/joshuamarknanninga/haunted-object-database',
+    links: ['https://joshuamarknanninga.github.io/haunted-object-database/', 'https://github.com/joshuamarknanninga/haunted-object-database']
   },
   {
     title: 'audio-markdown',
     // image: '/assets/project2.png',
-    deployedLink: 'https://joshuamarknanninga.github.io/audio-markdown/',
-    repoLink: 'https://github.com/joshuamarknanninga/diabetes-nutrition-app',
+    links: ['https://joshuamarknanninga.github.io/audio-markdown/', 'https://github.com/joshuamarknanninga/audio-markdown']
   },
   {
     title: 'scrolling-wolfenstein3d-clone',
     // image: '/assets/project2.png',
-    deployedLink: 'https://joshuamarknanninga.github.io/scrolling-wolfenstein3d-clone/',
-    repoLink: 'https://github.com/joshuamarknanninga/scrolling-wolfenstein3d-clone',
+    links: ['https://joshuamarknanninga.github.io/scrolling-wolfenstein3d-clone/', 'https://github.com/joshuamarknanninga/scrolling-wolfenstein3d-clone']
   },
   {
     title: 'job-search-website',
     // image: '/assets/project2.png',
-    deployedLink: 'https://joshuamarknanninga.github.io/job-search-website/',
-    repoLink: 'https://github.com/joshuamarknanninga/job-search-website',
+    links: ['https://joshuamarknanninga.github.io/job-search-website/', 'https://github.com/joshuamarknanninga/job-search-website']
   },
   {
     title: 'trippy-visual-dj',
    // image: '/assets/project2.png',
-    deployedLink: 'https://joshuamarknanninga.github.io/trippy-visual-dj/',
-    repoLink: 'https://github.com/joshuamarknanninga/trippy-visual-dj',
+    links: ['https://joshuamarknanninga.github.io/trippy-visual-dj/', 'https://github.com/joshuamarknanninga/trippy-visual-dj']
   },
   {
     title: 'burbz',
     // image: '/assets/project2.png',
-    deployedLink: 'https://joshuamarknanninga.github.io/burbz/',
-    repoLink: 'https://github.com/joshuamarknanninga/burbz',
+    links: ['https://joshuamarknanninga.github.io/burbz/', 'https://github.com/joshuamarknanninga/burbz']
   },
   {
     title: 'chatbot-1',
     // image: '/assets/project2.png',
-    deployedLink: 'https://joshuamarknanninga.github.io/chatbot-1/',
-    repoLink: 'https://github.com/joshuamarknanninga/chatbot-1',
+    links: ['https://joshuamarknanninga.github.io/chatbot-1/', 'https://github.com/joshuamarknanninga/chatbot-1']
   },
   {
     title: 'Matrix-Opening',
    // image: '/assets/project2.png',
-    deployedLink: 'https://joshuamarknanninga.github.io/Matrix-Opening/',
-    repoLink: 'https://github.com/joshuamarknanninga/Matrix-Opening',
+    links: ['https://joshuamarknanninga.github.io/Matrix-Opening/', 'https://github.com/joshuamarknanninga/Matrix-Opening']
   },
 ];
 
 function Portfolio() {
-  const [animationSpeed, setAnimationSpeed] = useState(5); // Default speed
+  const [animationSpeed, setAnimationSpeed] = useState(5);
 
   const handleSliderChange = (e) => {
     setAnimationSpeed(Number(e.target.value));
