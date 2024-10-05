@@ -10,17 +10,20 @@ function Project({ title, description, image, links }) {
       <h3 className="project-title">{title}</h3>
       <p className="project-description">{description}</p>
       <div className="project-links">
-        {links.map((link, index) => (
-          <a
-            key={index}
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="project-link"
-          >
-            {linkType}
-          </a>
-        ))}
+      {links.map((link, index) => {
+const linkType = link.includes('github.com') ? 'Live Deploy' : 'GitHub Repository';
+  return (
+    <a
+      key={index}
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="project-link"
+    >
+      {linkType}
+    </a>
+  );
+})}
       </div>
     </div>
   );

@@ -8,7 +8,7 @@
     padding: 40px 20px;
     background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
     color: #333333;
-    position: relative; /* Ensure z-index takes effect */
+    position: relative;
     z-index: 10;
   }
   
@@ -29,6 +29,7 @@
     font-size: 1.1rem;
     line-height: 1.6;
     margin-bottom: 20px;
+    font-style: italic;
   }
   
   /* Responsive adjustments */
