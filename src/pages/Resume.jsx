@@ -1,76 +1,47 @@
-import React, { useState } from 'react';
-import '../styles/Resume.css'; // Create and import CSS as needed
-import resumePDF from '../assets/resume.pdf'; // Replace with your resume path
-import PixelArtGenerator from '../components/PixelArtGenerator';
+import React from 'react';
+import { motion } from 'framer-motion';
 
 function Resume() {
-  const [animationSpeed, setAnimationSpeed] = useState(5); // Default speed
-  const theme = ['#1ABC9C', '#E67E22', '#9B59B6', '#34495E']; // Example theme for Resume
-
-  const handleSliderChange = (e) => {
-    setAnimationSpeed(Number(e.target.value));
-  };
-
   return (
-    <section className="resume">
-      <PixelArtGenerator theme={theme} animationSpeed={animationSpeed} />
-      <h2>Resume</h2>
-      <a href={resumePDF} download>
-        Download Resume
-      </a>
-      <div className="slider-container">
-        <label htmlFor="speed-slider">Animation Speed:</label>
-        <input
-          type="range"
-          id="speed-slider"
-          min="1"
-          max="10"
-          value={animationSpeed}
-          onChange={handleSliderChange}
-        />
+    <motion.section
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="min-h-screen bg-gradient-to-tr from-gray-700 via-gray-900 to-black p-8 text-white"
+    >
+      <h2 className="text-4xl font-bold mb-8">Resume</h2>
+      <div className="space-y-8 max-w-3xl mx-auto">
+        <div className="space-y-2">
+          <h3 className="text-2xl font-semibold">Experience</h3>
+          <p className="text-lg leading-relaxed">
+            Software Developer - ABC Corp (2020 - Present)
+          </p>
+          <ul className="list-disc list-inside">
+            <li>Developed key features for high-traffic web applications.</li>
+            <li>Worked in a team environment with agile methodologies.</li>
+          </ul>
+        </div>
+        <div className="space-y-2">
+          <h3 className="text-2xl font-semibold">Education</h3>
+          <p className="text-lg leading-relaxed">
+            B.S. in Computer Science - University XYZ (2016 - 2020)
+          </p>
+          <ul className="list-disc list-inside">
+            <li>Graduated with Honors, GPA: 3.8/4.0</li>
+            <li>Relevant coursework: Data Structures, Algorithms, Web Development</li>
+          </ul>
+        </div>
+        <div className="space-y-2">
+          <h3 className="text-2xl font-semibold">Skills</h3>
+          <ul className="list-disc list-inside">
+            <li>Programming Languages: JavaScript, Python, C++</li>
+            <li>Web Technologies: React, Node.js, HTML/CSS</li>
+            <li>Tools: Git, Docker, AWS</li>
+          </ul>
+        </div>
       </div>
-      <h3>Proficiencies</h3>
-      <ul className="proficiencies">
-        <li>JavaScript</li>
-        <li>React</li>
-        <li>HTML/CSS</li>
-        <li>Node.js</li>
-        <li>Git & GitHub</li>
-        <li>SQL</li>
-        <li>MySQL</li>
-        <li>JQuery</li>
-        <li>Bootstrap</li>
-        <li>AJAX</li>
-        <li>SASS</li>
-        <li>Vue.js</li>
-        <li>NPM</li>
-        <li>Mocha</li>
-        <li>Chrome Dev Tools</li>
-        <li>Tailwind</li>
-        <li>Bulma</li>
-        <li>MongoDB</li>
-        <li>Express</li>
-        <li>Handlebars</li>
-        <li>Firebase</li>
-        <li>AWS</li>
-        <li>Webpack</li>
-        <li>Gulp</li>
-        <li>Python</li>
-        <li>OAuth</li>
-        <li>Jest</li>
-        <li>GCP</li>
-        <li>Heroku</li>
-        <li>Insomnia</li>
-        <li>Web Audio API</li>
-        <li>MediaRecorder API</li>
-        <li>BroadcastChannel API</li>
-        <li>WebGL</li>
-        <li>Three.js</li>
-        {/* Add more proficiencies as needed */}
-      </ul>
-    </section>
+    </motion.section>
   );
 }
-
 
 export default Resume;
