@@ -1,41 +1,34 @@
-import React, { Suspense } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { motion } from 'framer-motion';
+// src/App.jsx
 
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Navigation from './components/Navigation';
-import About from './pages/About';
-import Contact from './pages/Contact';
-import Portfolio from './pages/Portfolio';
-import Resume from './pages/Resume';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
+
+import Header from './components/Header/Header';
+import About from './components/About/About';
+import Projects from './components/Projects/Projects';
+import Contact from './components/Contact/Contact';
+import Footer from './components/Footer/Footer';
+
+import './App.css';
 
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-sans">
-      <Router>
+    <Router>
+      <div className="App">
         <Header />
-        <Navigation />
-        
-        <motion.main
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          className="container mx-auto p-4"
-        >
-          <Suspense fallback={<div>Loading...</div>}>
-            <Routes>
-              <Route path="/" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/portfolio" element={<Portfolio />} />
-              <Route path="/resume" element={<Resume />} />
-            </Routes>
-          </Suspense>
-        </motion.main>
-        
+        {/* AnimatePresence enables exit animations when components are removed */}
+        <AnimatePresence exitBeforeEnter>
+          <Routes>
+            <Route path="/" element={<About />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/contact" element={<Contact />} />
+            {/* Add more routes as needed */}
+          </Routes>
+        </AnimatePresence>
         <Footer />
-      </Router>
-    </div>
+      </div>
+    </Router>
   );
 }
 
