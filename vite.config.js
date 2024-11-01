@@ -5,41 +5,31 @@ import react from '@vitejs/plugin-react';
 import svgr from 'vite-plugin-svgr';
 import path from 'path';
 
+// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    react({
-      // React Fast Refresh is enabled by default
-      // Additional React-specific configurations can go here
-    }),
+    react(), // Enables React-specific features like JSX transformation
     svgr({
-      // Configuration for handling SVGs as React components
+      // Configuration options for vite-plugin-svgr
       svgrOptions: {
-        icon: true, // Enables SVG icons
+        icon: true, // Optional: Optimize SVGs as icon components
+        // You can add more svgr options here if needed
       },
     }),
   ],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),              // Alias '@' to './src' directory
-      '@components': path.resolve(__dirname, './src/components'), // Alias '@components' to './src/components'
-      '@assets': path.resolve(__dirname, './src/assets'),  // Alias '@assets' to './src/assets'
+      '@': path.resolve(__dirname, 'src'), // Allows using '@' to reference the 'src' directory
+      // Add more aliases if necessary
     },
   },
   server: {
-    port: 3000,            // Development server port
-    open: true,            // Automatically open the app in the browser on server start
-    // proxy: {             // Uncomment and configure if you need to proxy API requests
-    //   '/api': {
-    //     target: 'http://localhost:5000',
-    //     changeOrigin: true,
-    //     secure: false,
-    //   },
-    // },
+    port: 3000, // Specify the port you want the dev server to run on
+    open: true, // Automatically open the app in the browser on server start
+    // You can add more server options here
   },
   build: {
-    outDir: 'build',      // Output directory for the production build
-    sourcemap: true,      // Generates source maps for the production build
-    minify: 'esbuild',    // Minification using esbuild (default is 'esbuild')
-    target: 'es2015',     // Specify the target for the final build
+    outDir: 'dist', // Specify the output directory for the build
+    // You can add more build options here
   },
 });

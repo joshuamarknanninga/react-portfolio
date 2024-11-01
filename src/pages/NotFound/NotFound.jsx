@@ -7,7 +7,7 @@ import { FiArrowLeftCircle } from 'react-icons/fi';
 import Particles from 'react-tsparticles';
 import { loadFull } from 'tsparticles';
 import { Player } from '@lottiefiles/react-lottie-player';
-import clickSound from '@/assets/audio/click-sound.mp3'; // Ensure correct path
+import clickSound from '@/assets/audio/click-sound.wav'; // Ensure correct path
 import animationData from '@/assets/lottie/404-animation.json'; // Ensure correct path
 import './NotFound.css';
 

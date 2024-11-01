@@ -6,7 +6,6 @@ import { AnimatePresence } from 'framer-motion';
 
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-import Button from './components/common/Button';
 
 import './App.css';
 
