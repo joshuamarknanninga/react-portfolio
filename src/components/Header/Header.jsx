@@ -1,19 +1,57 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+// src/components/Header/Header.jsx
 
-function Header() {
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import './Header.css';
+
+const Header = () => {
+  const [menuActive, setMenuActive] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuActive(!menuActive);
+  };
+
+  const closeMenu = () => {
+    setMenuActive(false);
+  };
+
+  const navItems = [
+    { name: 'About', path: '/' },
+    { name: 'Projects', path: '/projects' },
+    { name: 'Contact', path: '/contact' },
+  ];
+
   return (
-    <motion.header
-      initial={{ y: -50, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className="w-full bg-gradient-to-r from-blue-600 to-purple-700 p-4 shadow-lg"
-    >
-      <h1 className="text-3xl font-bold text-center text-white">
-        My Portfolio
-      </h1>
-    </motion.header>
+    <header className="header">
+      <div className="logo">
+        <Link to="/" onClick={closeMenu}>
+          Joshua Mark Nanninga
+        </Link>
+      </div>
+      <nav>
+        <div className={`nav-links ${menuActive ? 'active' : ''}`}>
+          <ul>
+            {navItems.map((item, index) => (
+              <motion.li
+                key={index}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={closeMenu}
+              >
+                <Link to={item.path}>{item.name}</Link>
+              </motion.li>
+            ))}
+          </ul>
+        </div>
+        <div className={`menu-toggle ${menuActive ? 'active' : ''}`} onClick={toggleMenu}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+    </header>
   );
-}
+};
 
 export default Header;
