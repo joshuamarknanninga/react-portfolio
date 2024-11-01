@@ -3,24 +3,63 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { FiArrowLeftCircle } from 'react-icons/fi';
 import './NotFound.css';
 
 const NotFound = () => {
+  // Animation variants for container
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3,
+      },
+    },
+  };
+
+  // Animation variants for each item
+  const itemVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: 'spring',
+        stiffness: 100,
+      },
+    },
+  };
+
   return (
-    <section className="notfound-section">
+    <div className="notfound-wrapper">
+      {/* Animated Gradient Background */}
+      <div className="animated-gradient"></div>
+
+      {/* Particle Background */}
+      <canvas id="particles-js"></canvas>
+
+      {/* Main Content */}
       <motion.div
-        className="container"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
+        className="notfound-content"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
       >
-        <h2>404 - Page Not Found</h2>
-        <p>Oops! The page you're looking for doesn't exist.</p>
-        <Link to="/" className="home-link">
-          Go Back Home
-        </Link>
+        <motion.h1 className="notfound-title" variants={itemVariants}>
+          404
+        </motion.h1>
+        <motion.p className="notfound-message" variants={itemVariants}>
+          Oops! The page you're looking for doesn't exist.
+        </motion.p>
+        <motion.div className="notfound-actions" variants={itemVariants}>
+          <Link to="/" className="home-button">
+            <FiArrowLeftCircle className="home-icon" />
+            Go Back Home
+          </Link>
+        </motion.div>
       </motion.div>
-    </section>
+    </div>
   );
 };
 
