@@ -1,110 +1,53 @@
-// src/components/PixelArtGenerator.jsx
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
-import React, { useRef, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import '../styles/PixelArtGenerator.css';
+function PixelArtGenerator() {
+  const [grid, setGrid] = useState(Array(16).fill(Array(16).fill('#ffffff')));
+  const [selectedColor, setSelectedColor] = useState('#000000');
 
-const PixelArtGenerator = ({ theme, animationSpeed }) => {
-  const canvasRef = useRef(null);
-  const animationRef = useRef(null);
-  const colors = theme; // Array of color strings
+  const handleColorChange = (color) => {
+    setSelectedColor(color);
+  };
 
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
+  const handleCellClick = (rowIndex, colIndex) => {
+    const newGrid = grid.map((row, rIdx) =>
+      row.map((color, cIdx) => (rIdx === rowIndex && cIdx === colIndex ? selectedColor : color))
+    );
+    setGrid(newGrid);
+  };
 
-    // Function to set canvas size
-    const setCanvasSize = () => {
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
-    };
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="min-h-screen bg-gradient-to-b from-gray-800 to-gray-900 p-8 text-white"
+    >
+      <h2 className="text-3xl font-bold mb-6 text-center">Pixel Art Generator</h2>
 
-    setCanvasSize();
+      <div className="flex justify-center mb-4">
+        <input
+          type="color"
+          value={selectedColor}
+          onChange={(e) => handleColorChange(e.target.value)}
+          className="w-16 h-16 border-4 border-gray-600 rounded-full"
+        />
+      </div>
 
-    // Debounced resize handler to optimize performance
-    let resizeTimeout;
-    const handleResize = () => {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(() => {
-        setCanvasSize();
-        cols = Math.floor(canvas.width / pixelSize);
-        rows = Math.floor(canvas.height / pixelSize);
-        grid = [];
-        for (let x = 0; x < cols; x++) {
-          grid[x] = [];
-          for (let y = 0; y < rows; y++) {
-            grid[x][y] = colors[Math.floor(Math.random() * colors.length)];
-          }
-        }
-        drawGrid();
-      }, 800);
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    const pixelSize = 1; // Size of each pixel
-    let cols = Math.floor(canvas.width / pixelSize);
-    let rows = Math.floor(canvas.height / pixelSize);
-
-    // Initialize grid with random colors from the theme
-    let grid = [];
-    for (let x = 0; x < cols; x++) {
-      grid[x] = [];
-      for (let y = 0; y < rows; y++) {
-        grid[x][y] = colors[Math.floor(Math.random() * colors.length)];
-      }
-    }
-
-    // Function to draw the grid
-    const drawGrid = () => {
-      for (let x = 0; x < cols; x++) {
-        for (let y = 0; y < rows; y++) {
-          ctx.fillStyle = grid[x][y];
-          ctx.fillRect(x * pixelSize, y * pixelSize, pixelSize, pixelSize);
-        }
-      }
-    };
-
-    // Function to update the grid based on animation speed
-    const updateGrid = () => {
-      for (let x = 0; x < cols; x++) {
-        for (let y = 0; y < rows; y++) {
-          if (Math.random() < 0.05 * (animationSpeed / 5)) { // Adjust change probability
-            grid[x][y] = colors[Math.floor(Math.random() * colors.length)];
-          }
-        }
-      }
-    };
-
-    let frameCount = 0;
-
-    // Animation loop
-    const animate = () => {
-      frameCount++;
-      if (frameCount % Math.max(1, Math.floor(60 / (animationSpeed * 5))) === 0) { // Control animation speed
-        updateGrid();
-        drawGrid();
-      }
-      animationRef.current = requestAnimationFrame(animate);
-    };
-
-    drawGrid();
-    animate();
-
-    // Cleanup on unmount
-    return () => {
-      cancelAnimationFrame(animationRef.current);
-      window.removeEventListener('resize', handleResize);
-      clearTimeout(resizeTimeout);
-    };
-  }, [colors, animationSpeed]);
-
-  return <canvas ref={canvasRef} className="pixel-art-canvas" />;
-};
-
-PixelArtGenerator.propTypes = {
-  theme: PropTypes.arrayOf(PropTypes.string).isRequired,
-  animationSpeed: PropTypes.number.isRequired,
-};
+      <div className="grid grid-cols-16 gap-1 mx-auto max-w-xl">
+        {grid.map((row, rowIndex) =>
+          row.map((color, colIndex) => (
+            <div
+              key={`${rowIndex}-${colIndex}`}
+              onClick={() => handleCellClick(rowIndex, colIndex)}
+              className="w-8 h-8"
+              style={{ backgroundColor: color }}
+            ></div>
+          ))
+        )}
+      </div>
+    </motion.div>
+  );
+}
 
 export default PixelArtGenerator;
