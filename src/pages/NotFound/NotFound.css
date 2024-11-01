@@ -1,0 +1,75 @@
+/* src/pages/NotFound.css */
+
+.notfound-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    background: var(--background-gradient);
+    color: #ffffff;
+    text-align: center;
+    padding: 0 20px;
+  }
+  
+  .notfound-section h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #ff8a00, #e52e71);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .notfound-section p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+  
+  .home-link {
+    padding: 12px 25px;
+    background: linear-gradient(90deg, #ff8a00, #e52e71);
+    color: #ffffff;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s, transform 0.2s;
+  }
+  
+  .home-link:hover {
+    background: linear-gradient(90deg, #e52e71, #ff8a00);
+  }
+  
+  .home-link:active {
+    transform: scale(0.95);
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .notfound-section h2 {
+      font-size: 2.5rem;
+    }
+  
+    .notfound-section p {
+      font-size: 1.1rem;
+    }
+  
+    .home-link {
+      padding: 10px 20px;
+      font-size: 0.95rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .notfound-section h2 {
+      font-size: 2rem;
+    }
+  
+    .notfound-section p {
+      font-size: 1rem;
+    }
+  
+    .home-link {
+      padding: 8px 15px;
+      font-size: 0.9rem;
+    }
+  }
+  
