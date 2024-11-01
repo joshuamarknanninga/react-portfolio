@@ -1,236 +1,41 @@
 /* src/App.css */
 
-/* 1. CSS Reset and Global Styles */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html, body, #root, .App {
-  height: 100%;
-  width: 100%;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-  color: #333;
-  overflow-x: hidden;
-}
-
-/* 2. Scrollbar Styling (Optional) */
-body {
-  scrollbar-width: thin;
-  scrollbar-color: #e52e71 #c3cfe2;
-}
-
-body::-webkit-scrollbar {
-  width: 8px;
-}
-
-body::-webkit-scrollbar-track {
-  background: #c3cfe2;
-  border-radius: 4px;
-}
-
-body::-webkit-scrollbar-thumb {
-  background-color: #e52e71;
-  border-radius: 4px;
-  border: 2px solid #c3cfe2;
-}
-
-/* 3. Global Typography */
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-
-p {
-  line-height: 1.6;
-  font-size: 1rem;
-  margin-bottom: 1rem;
-}
-
-/* 4. Link Styles */
-a {
-  color: #e52e71;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-a:hover {
-  color: #ff8a00;
-}
-
-/* 5. Main Content Area */
-main {
-  padding: 20px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-/* 6. Flexbox Utility Classes */
-.flex {
-  display: flex;
-}
-
-.flex-center {
+/* Loader Styles */
+.loader {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 60vh;
+  font-size: 1.5rem;
+  color: var(--primary-color);
 }
 
-.flex-between {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* Global Page Transitions (Optional) */
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
 }
 
-/* 7. Responsive Container */
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
-/* 8. Smooth Transitions */
-body, button, input, textarea {
-  transition: all 0.3s ease-in-out;
+.page-exit {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* 9. Media Queries for Responsiveness */
-@media (max-width: 1200px) {
-  .container {
-    width: 95%;
-  }
+.page-exit-active {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
-@media (max-width: 768px) {
-  main {
-    padding: 15px;
-  }
-}
-
-@media (max-width: 480px) {
-  h1 {
-    font-size: 2rem;
-  }
-
-  h2 {
-    font-size: 1.75rem;
-  }
-
-  p {
-    font-size: 0.95rem;
-  }
-}
-
-/* 10. Utility Classes for Spacing */
-.mt-1 { margin-top: 0.25rem; }
-.mt-2 { margin-top: 0.5rem; }
-.mt-3 { margin-top: 1rem; }
-
-.mb-1 { margin-bottom: 0.25rem; }
-.mb-2 { margin-bottom: 0.5rem; }
-.mb-3 { margin-bottom: 1rem; }
-
-.pt-1 { padding-top: 0.25rem; }
-.pt-2 { padding-top: 0.5rem; }
-.pt-3 { padding-top: 1rem; }
-
-.pb-1 { padding-bottom: 0.25rem; }
-.pb-2 { padding-bottom: 0.5rem; }
-.pb-3 { padding-bottom: 1rem; }
-
-/* 11. Button Reset */
-button {
-  font-family: inherit;
-  font-size: inherit;
-  cursor: pointer;
-  border: none;
-  background: none;
-}
-
-/* 12. Smooth Page Transitions */
-.App {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-/* 13. Accessibility Focus Styles */
-a:focus,
-button:focus,
-input:focus,
-textarea:focus {
-  outline: 2px dashed #e52e71;
-  outline-offset: 4px;
-}
-
-/* 14. Image Styles */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* 15. Transition Effects for Components */
-.fade-in {
-  animation: fadeIn 1s ease-in-out forwards;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* 16. Utility Classes for Text Alignment */
-.text-center { text-align: center; }
-.text-left { text-align: left; }
-.text-right { text-align: right; }
-
-/* 17. Box Shadows */
-.shadow {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.shadow-lg {
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-}
-
-/* 18. Border Radius Utilities */
-.rounded {
-  border-radius: 8px;
-}
-
-.rounded-lg {
-  border-radius: 15px;
-}
-
-.rounded-full {
-  border-radius: 50%;
-}
-
-/* 19. Background Utilities */
-.bg-white {
-  background-color: #ffffff;
-}
-
-.bg-transparent {
-  background-color: transparent;
-}
-
-/* 20. Additional Global Styles (Optional) */
-
-/* Prevent images from being draggable */
-img {
-  -webkit-user-drag: none;
-  user-drag: none;
-}
-
-/* Smooth scrolling */
+/* Smooth Scroll Behavior (Redundant if already in index.css, but kept for emphasis) */
 html {
   scroll-behavior: smooth;
 }
+
+/* Additional Global Styles (if any) can be added here */
