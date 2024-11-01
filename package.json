@@ -1,28 +1,23 @@
 {
-  "name": "react-portfolio",
-  "version": "0.0.0",
-  "scripts": {
-    "dev": "vite",
-    "start": "vite",
-    "build": "vite build",
-    "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
-  },
+  "name": "react-portfolio-main",
+  "version": "1.0.0",
+  "private": true,
   "dependencies": {
-    "debug": "^4.3.7",
-    "framer-motion": "^10.18.0",
-    "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-icons": "^5.3.0",
-    "react-router-dom": "^6.14.1",
-    "three": "^0.168.0"
+    "react-router-dom": "^6.4.2",
+    "tailwindcss": "^3.0.0",
+    "framer-motion": "^6.0.0"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^4.0.0",
-    "caniuse-lite": "^1.0.30001459",
-    "eslint": "^8.0.0",
-    "globals": "^15.9",
-    "vite": "^5.4.8"
+    "vite": "^3.0.0",
+    "@vitejs/plugin-react": "^3.0.0",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
   }
 }
