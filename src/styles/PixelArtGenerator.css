@@ -1,0 +1,19 @@
+/* src/styles/PixelArtGenerator.css */
+
+.pixel-art-generator {
+    position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Ensure it stays behind other content */
+  overflow: hidden;
+  pointer-events: none; /* Allow clicks through */
+  }
+  
+  .pixel-art-generator canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  

@@ -1,0 +1,87 @@
+/* src/styles/Portfolio.css */
+
+.portfolio {
+  position: relative;
+  /* To position the PixelArtGenerator's canvas absolutely */
+  padding: 40px 20px;
+  min-height: 100vh;
+  /* Ensures the portfolio section covers the full viewport height */
+  text-align: center;
+  /* Centers the text within the portfolio section */
+  color: #333;
+  /* Sets a default text color */
+  background-color: rgba(255, 255, 255, 0.5);
+  /* Semi-transparent background for readability */
+  overflow: visible;
+  /* Prevents scrollbars due to absolute elements */
+}
+
+.portfolio h2 {
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  /* Enlarges the heading for emphasis */
+  position: relative;
+  /* Ensures it sits above the background canvas */
+  z-index: 1;
+  /* Positions the heading above the background canvas */
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  /* Responsive columns */
+  gap: 20px;
+  margin-bottom: 30px;
+  /* Adds space below the projects grid */
+}
+
+.slider-container {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider-container label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.slider-container input[type='range'] {
+  width: 200px;
+}
+
+/* Styling for the PixelArtGenerator's canvas */
+.pixel-art-canvas {
+  position: absolute;
+  /* Positions the canvas absolutely within the portfolio section */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  /* Places the canvas behind other elements */
+  pointer-events: none;
+  /* Allows clicks to pass through to underlying elements */
+}
+
+/* Responsive Design Enhancements */
+@media (max-width: 768px) {
+  .portfolio h2 {
+    font-size: 2rem;
+  }
+
+  .slider-container input[type='range'] {
+    width: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolio h2 {
+    font-size: 1.5rem;
+  }
+
+  .slider-container input[type='range'] {
+    width: 100px;
+  }
+}

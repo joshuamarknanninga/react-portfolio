@@ -1,0 +1,72 @@
+/* src/components/Footer/Footer.css */
+
+/* Footer Styles */
+.footer {
+  padding: 20px 40px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer p {
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+.social-links {
+  display: flex;
+  gap: 20px;
+}
+
+.social-links a {
+  color: var(--text-color);
+  transition: color 0.3s, transform 0.2s;
+}
+
+.social-links a:hover {
+  color: var(--secondary-color);
+  transform: translateY(-3px);
+}
+
+.social-links svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .footer .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .social-links {
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer p {
+    font-size: 0.95rem;
+  }
+
+  .social-links a svg {
+    width: 20px;
+    height: 20px;
+  }
+}

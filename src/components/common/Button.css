@@ -1,0 +1,50 @@
+/* src/components/common/Button.css */
+
+/* Base Button Styles */
+.custom-button {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    border: none;
+  }
+  
+  /* Primary Variant */
+  .custom-button.primary {
+    background: linear-gradient(90deg, #ff8a00, #e52e71);
+  }
+  
+  .custom-button.primary:hover {
+    background: linear-gradient(90deg, #e52e71, #ff8a00);
+  }
+  
+  /* Secondary Variant */
+  .custom-button.secondary {
+    background: linear-gradient(90deg, #4e54c8, #8f94fb);
+  }
+  
+  .custom-button.secondary:hover {
+    background: linear-gradient(90deg, #8f94fb, #4e54c8);
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .custom-button {
+      padding: 10px 20px;
+      font-size: 0.95rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .custom-button {
+      padding: 8px 15px;
+      font-size: 0.9rem;
+    }
+  }
+  

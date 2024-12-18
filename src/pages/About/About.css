@@ -1,0 +1,101 @@
+/* src/components/About/About.css */
+
+/* About Section Styles */
+.about-section {
+  padding: 100px 20px 60px 20px; /* Extra padding-top to account for fixed header */
+  background: var(--background-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* About Content Container */
+.about-content {
+  background: var(--light-background);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Heading Styles */
+.about-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, #ff8a00, #e52e71);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Paragraph Styles */
+.about-content p {
+  font-size: 1.1rem;
+  color: var(--text-color);
+  margin-bottom: 20px;
+  line-height: 1.8;
+}
+
+/* Call-to-Action Button Styles */
+.cta-button {
+  display: inline-block;
+  padding: 12px 30px;
+  background: linear-gradient(90deg, #ff8a00, #e52e71);
+  color: #fff;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Hover and Tap Effects for Button */
+.cta-button:hover {
+  background: linear-gradient(90deg, #e52e71, #ff8a00);
+}
+
+.cta-button:active {
+  transform: scale(0.95);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .about-content {
+    padding: 30px;
+  }
+
+  .about-content h2 {
+    font-size: 2rem;
+  }
+
+  .about-content p {
+    font-size: 1rem;
+  }
+
+  .cta-button {
+    padding: 10px 25px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-content {
+    padding: 20px;
+  }
+
+  .about-content h2 {
+    font-size: 1.75rem;
+  }
+
+  .about-content p {
+    font-size: 0.95rem;
+  }
+
+  .cta-button {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+  }
+}

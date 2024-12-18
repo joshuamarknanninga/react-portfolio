@@ -1,0 +1,41 @@
+/* src/App.css */
+
+/* Loader Styles */
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+/* Global Page Transitions (Optional) */
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.page-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-exit-active {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+/* Smooth Scroll Behavior (Redundant if already in index.css, but kept for emphasis) */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Additional Global Styles (if any) can be added here */
